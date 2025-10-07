@@ -1,5 +1,32 @@
 {
-  "lastSyncedAt": "2025-10-07T13:14:51.274Z",
+  "lastSyncedAt": "2025-10-07T13:27:49.137Z",
   "source": "https://wyemh3eowg.execute-api.ap-south-1.amazonaws.com/cities",
-  "states": []
+  "states": [
+    {
+      "state": "AP",
+      "cities": [
+        "Hyderabad"
+      ]
+    },
+    {
+      "state": "DL",
+      "cities": [
+        "New Delhi"
+      ]
+    },
+    {
+      "state": "KA",
+      "cities": [
+        "Bengaluru"
+      ]
+    },
+    {
+      "state": "MH",
+      "cities": [
+        "Mumbai",
+        "Nagpur",
+        "Pune"
+      ]
+    }
+  ]
 }
