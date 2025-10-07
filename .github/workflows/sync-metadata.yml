@@ -2,7 +2,7 @@ name: Sync meta-data.json with public API
 
 on:
   schedule:
-    - cron: "0 2 * * *" # UTC; ~07:30 IST
+    - cron: "*/5 * * * *" # adding, 5 minutes interval
   workflow_dispatch: {}
 
 permissions:
