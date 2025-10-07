@@ -1,0 +1,53 @@
+name: Sync meta-data.json with public API
+
+on:
+  schedule:
+    - cron: "*/5 * * * *" # adding, 5 minutes interval
+  workflow_dispatch: {}
+
+permissions:
+  contents: write
+  pull-requests: write
+
+jobs:
+  sync:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out repo
+        uses: actions/checkout@v4
+
+      - name: Set up Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: "npm"
+
+      - name: Install deps
+        run: npm ci
+
+      - name: Update meta-data.json from source
+        run: npm run update:metadata
+
+      # If files changed, create or update a PR
+      - name: Create Pull Request
+        id: cpr
+        uses: peter-evans/create-pull-request@v6
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+          commit-message: "chore(meta): sync meta-data.json"
+          branch: chore/metadata-sync
+          title: "chore(meta): sync meta-data.json"
+          body: |
+            Automated sync of `meta-data.json` from public source.
+
+            - Source: https://wyemh3eowg.execute-api.ap-south-1.amazonaws.com/cities
+            - If no changes are present, this PR will not be created/updated.
+          labels: |
+            automation
+            meta
+          delete-branch: true
+
+      - name: PR info
+        if: steps.cpr.outputs.pull-request-number
+        run: |
+          echo "Opened/updated PR #${{ steps.cpr.outputs.pull-request-number }}"
