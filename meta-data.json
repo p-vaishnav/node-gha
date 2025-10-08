@@ -1,5 +1,5 @@
 {
-  "lastSyncedAt": "2025-10-08T08:15:39.868Z",
+  "lastSyncedAt": "2025-10-08T12:24:37.936Z",
   "source": "https://wyemh3eowg.execute-api.ap-south-1.amazonaws.com/cities",
   "states": [
     {
@@ -27,6 +27,14 @@
         "Mumbai",
         "Nagpur",
         "Pune"
+      ]
+    },
+    {
+      "state": "UP",
+      "cities": [
+        "Agra",
+        "Kanpur",
+        "Lucknow"
       ]
     }
   ]
