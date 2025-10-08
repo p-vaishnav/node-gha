@@ -1,11 +1,12 @@
 {
-  "lastSyncedAt": "2025-10-07T13:27:49.137Z",
+  "lastSyncedAt": "2025-10-08T08:15:39.868Z",
   "source": "https://wyemh3eowg.execute-api.ap-south-1.amazonaws.com/cities",
   "states": [
     {
       "state": "AP",
       "cities": [
-        "Hyderabad"
+        "Hyderabad",
+        "Vishakapatnam"
       ]
     },
     {
